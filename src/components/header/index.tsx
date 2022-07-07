@@ -1,3 +1,4 @@
+import React, { useRef } from "react";
 import logoSvg from "../../assets/img/pizza.svg";
 import { Link, useLocation } from "react-router-dom";
 import { Search } from "../search";
@@ -10,6 +11,16 @@ export const Header = () => {
     (sum: number, item: any) => sum + item.count,
     0
   );
+  const isMounted = useRef(false);
+
+  React.useEffect(() => {
+    if (isMounted.current) {
+      const json = JSON.stringify(items);
+      localStorage.setItem("cart", json);
+    }
+    isMounted.current = true;
+    // console.log(json);
+  }, [items]);
   const { pathname } = useLocation();
   return (
     <div className="header">
@@ -23,7 +34,7 @@ export const Header = () => {
             </div>
           </div>
         </Link>
-        <Search />
+        {pathname !== "/cart" && <Search />}
         <div className="header__cart">
           {pathname !== "/cart" && (
             <Link to={"/cart"} className="button button--cart">

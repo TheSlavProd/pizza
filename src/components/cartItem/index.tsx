@@ -51,7 +51,8 @@ export const CartItem: React.FC<TPropsCartItem> = ({
         </p>
       </div>
       <div className="cart__item-count">
-        <div
+        <button
+          disabled={count === 1}
           className="button button--outline button--circle cart__item-count-minus"
           onClick={onClickMinus}
         >
@@ -71,7 +72,7 @@ export const CartItem: React.FC<TPropsCartItem> = ({
               fill="#EB5A1E"
             ></path>
           </svg>
-        </div>
+        </button>
         <b>{count}</b>
         <div
           className="button button--outline button--circle cart__item-count-plus"

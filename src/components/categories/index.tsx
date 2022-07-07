@@ -12,9 +12,9 @@ const catregories: TCategory[] = [
 
 type TProps = {
   value: number;
-  onChangeCategory: any;
+  onChangeCategory: (index: number) => void;
 };
-export const Categories: React.FC<TProps> = ({ value, onChangeCategory }) => {
+const Categories: React.FC<TProps> = ({ value, onChangeCategory }) => {
   return (
     <div className="categories">
       <ul>
@@ -31,3 +31,5 @@ export const Categories: React.FC<TProps> = ({ value, onChangeCategory }) => {
     </div>
   );
 };
+
+export default React.memo(Categories);

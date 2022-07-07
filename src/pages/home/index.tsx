@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import qs from "qs";
 import Skeleton from "../../components/pizzaBlock/Skeleton";
@@ -10,7 +10,7 @@ import {
   setFilters,
 } from "../../redux/slices/filterSlice";
 import { fetchPizzas, selectPizza } from "../../redux/slices/pizzaSlice";
-import { Categories } from "../../components/categories";
+import Categories from "../../components/categories";
 import { Pagination } from "../../components/pagination";
 import { PizzaBlock } from "../../components/pizzaBlock";
 import { Sort } from "../../components/sort";
@@ -77,15 +77,14 @@ export const Home: React.FC = () => {
     <PizzaBlock key={obj.id} {...obj} />
   ));
 
+  const changeCategory = useCallback((i: number) => {
+    dispach(setCategoryId(i));
+  }, []);
+
   return (
     <div className="container">
       <div className="content__top">
-        <Categories
-          value={categoryId}
-          onChangeCategory={(i: number) => {
-            dispach(setCategoryId(i));
-          }}
-        />
+        <Categories value={categoryId} onChangeCategory={changeCategory} />
         <Sort />
       </div>
       <h2 className="content__title">Все пиццы</h2>

@@ -16,7 +16,7 @@ export const listType: ListItem[] = [
   { name: "алфавиту (ASC)", sortProp: "-title" },
 ];
 
-export const Sort = () => {
+export const Sort = React.memo(() => {
   const [sortOpen, setSortOpen] = React.useState(false);
   const sortRef = React.useRef<HTMLDivElement>(null);
   const sortType = useSelector(selectSort);
@@ -77,4 +77,4 @@ export const Sort = () => {
       )}
     </div>
   );
-};
+});
