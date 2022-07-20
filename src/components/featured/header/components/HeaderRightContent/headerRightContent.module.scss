@@ -1,0 +1,42 @@
+.main {
+  display: flex;
+  text-align: center;
+  align-items: baseline;
+  justify-content: space-between;
+  a {
+    font-size: 14px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.6);
+    transition: 0.3s ease 0s;
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+}
+
+.cart_span {
+  position: relative;
+}
+.basket_notify {
+  font-size: 10px;
+  line-height: 13px;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  display: inline-block;
+  min-width: 16px;
+  height: 16px;
+  position: absolute;
+  top: -18px;
+  right: -5px;
+  background: #f55123;
+  padding: 2px 3px 1px;
+  border-radius: 16px;
+}
+
+@media (max-width: 1200px) {
+  .main {
+    justify-content: flex-end;
+    gap: 36px;
+  }
+}
