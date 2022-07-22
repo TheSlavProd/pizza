@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { MarketFooter } from "../components/featured/footer";
 import { MarketHeader } from "../components/featured/header";
+
 import { Header } from "../components/header";
 
 export const MainLayout: React.FC = () => {
@@ -14,6 +15,7 @@ export const MainLayout: React.FC = () => {
           <Outlet />
         </div>
       </div>
+
       <MarketFooter />
     </>
   );
